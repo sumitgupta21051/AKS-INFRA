@@ -9,7 +9,7 @@ on:
 jobs:
   terraforminit:
     name: terraform initss
-    runs-on: LAPTOP-4TFFDUNE
+    runs-on: self-hosted
     steps:
     - name: echo command
       run: echo "sam"
