@@ -1,15 +1,15 @@
-name: new code AKS
+name: new code AKS #optional 
 
-on:
+on:  #workflow kab chalega
   push:
     branches:
     - main
     - feature/*
 
 jobs:
-  terraforminit:
-    name: terraform initss
-    runs-on: self-hosted
+  terraforminit:  #job id
+    name: terraform initss #job name
+    runs-on: self-hosted #runner
     steps:
     - name: echo command
       run: echo "sam"
