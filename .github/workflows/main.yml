@@ -1,0 +1,15 @@
+name: new code AKS
+
+on:
+  push:
+    branches:
+    - main
+    - feature/*
+
+jobs:
+  terraform init:
+    name: terraform initss
+    runs-on: LAPTOP-4TFFDUNE
+    steps:
+    - name: echo command
+      run: echo "sam"
