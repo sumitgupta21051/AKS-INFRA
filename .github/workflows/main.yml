@@ -27,7 +27,3 @@ jobs:
         # TenantId of the Azure Service principal created.
         tenant-id: 66c291b4-1789-4bcb-9817-6b0339a238bc
         subscription-id: cef3b1fa-2c9d-4212-843c-0107fc35ca77
-
-        # Azure subscriptionId
-        subscription-id: # optional
-        
