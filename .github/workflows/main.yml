@@ -7,7 +7,7 @@ on:
     - feature/*
 
 jobs:
-  terraform init:
+  terraforminit:
     name: terraform initss
     runs-on: LAPTOP-4TFFDUNE
     steps:
