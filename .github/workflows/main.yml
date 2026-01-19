@@ -5,11 +5,16 @@ on:  #workflow kab chalega
     branches:
     - main
     - feature/*
-
+permissions:
+  id-token: write
+  contents: read
+  
 jobs:
   terraform_init:  #job id
     name: terraform initss #job name
     runs-on: self-hosted #runner and tag dena padta h
+    environment: dev
+
     steps:
     - name: Checkout
       uses: actions/checkout@v6.0.2
@@ -17,12 +22,12 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
-        # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
-        creds: # optional
         # ClientId of the Azure Service principal created.
-        client-id: # optional
+        client-id: 24173b11-ec1b-4072-813a-0aa8e3e81acf
         # TenantId of the Azure Service principal created.
-        tenant-id: # optional
+        tenant-id: 66c291b4-1789-4bcb-9817-6b0339a238bc
+        subscription-id: cef3b1fa-2c9d-4212-843c-0107fc35ca77
+
         # Azure subscriptionId
         subscription-id: # optional
         
