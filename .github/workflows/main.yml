@@ -7,9 +7,22 @@ on:  #workflow kab chalega
     - feature/*
 
 jobs:
-  terraforminit:  #job id
+  terraform_init:  #job id
     name: terraform initss #job name
     runs-on: self-hosted #runner and tag dena padta h
     steps:
-    - name: echo command
-      run: echo "sam"
+    - name: Checkout
+      uses: actions/checkout@v6.0.2
+
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
+        creds: # optional
+        # ClientId of the Azure Service principal created.
+        client-id: # optional
+        # TenantId of the Azure Service principal created.
+        tenant-id: # optional
+        # Azure subscriptionId
+        subscription-id: # optional
+        
