@@ -10,8 +10,8 @@ permissions:
   contents: read
   
 jobs:
-  terraform_init:  #job id
-    name: terraform initss #job name
+  terraform_init_plan:  #job id
+    name: terraform init plan #job name
     runs-on: self-hosted #runner and tag dena padta h
     environment: dev
 
@@ -27,3 +27,20 @@ jobs:
         # TenantId of the Azure Service principal created.
         tenant-id: 66c291b4-1789-4bcb-9817-6b0339a238bc
         subscription-id: cef3b1fa-2c9d-4212-843c-0107fc35ca77
+    
+    - name: terraform fmt
+      run: terraform fmt
+      
+    - name: terraforminit
+      run: terraform init
+      working-directory: env/dev
+      
+    - name: terraform plan
+      run: terraform plan
+      working-directory: env/dev
+
+      
+      
+    
+    
+        
