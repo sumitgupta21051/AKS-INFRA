@@ -1,4 +1,4 @@
-name: new code AKS #optional 
+name: new code AKS #optional pipeline name
 
 on:  #workflow kab chalega
   push:
@@ -9,7 +9,7 @@ on:  #workflow kab chalega
 jobs:
   terraforminit:  #job id
     name: terraform initss #job name
-    runs-on: self-hosted #runner
+    runs-on: self-hosted #runner and tag dena padta h
     steps:
     - name: echo command
       run: echo "sam"
