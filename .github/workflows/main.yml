@@ -5,14 +5,14 @@ on:  #workflow kab chalega
     branches:
     - main
     - feature/*
-permissions:
+permissions:  #OIDC m permission dena padta h
   id-token: write
   contents: read
   
 jobs:
   scanning_tool:
     name: scanning tool
-    runs-on: self-hosted
+    runs-on: ubuntu-latest # y github hosted m run hoga
     steps:
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v6.2.1  
