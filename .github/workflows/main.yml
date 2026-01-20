@@ -17,8 +17,8 @@ jobs:
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v6.2.1  
     - name: Run TFLint
-      run: tflint -f compact
-      working-directory: env/dev
+      run: tflint -f compact --recursive
+     
   
     
   terraform_init_plan:  #job id
