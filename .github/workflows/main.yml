@@ -16,17 +16,17 @@ jobs:
     steps:
     - name: Setup TFLint
       uses: terraform-linters/setup-tflint@v6.2.1  
+    - name: Run TFLint
+      run: tflint -f compact
+      working-directory: env/dev
   
     
   terraform_init_plan:  #job id
     name: terraform init plan #job name
     runs-on: self-hosted #runner and tag dena padta h
-    
-    
     steps:
     - name: Checkout
       uses: actions/checkout@v6.0.2
-
 
     - name: Azure Login
       uses: Azure/login@v2.3.0
