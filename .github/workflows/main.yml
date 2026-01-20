@@ -8,6 +8,7 @@ on:  #workflow kab chalega
 permissions:
   id-token: write
   contents: read
+
   
 jobs:
   terraform_init_plan:  #job id
