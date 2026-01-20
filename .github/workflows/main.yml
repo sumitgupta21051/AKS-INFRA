@@ -1,4 +1,4 @@
-name: new code AKS #optional pipeline name
+name: INFRA WORKFLOW AKS #optional pipeline name
 
 on:  #workflow kab chalega
   push:

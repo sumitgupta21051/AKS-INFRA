@@ -5,13 +5,13 @@ terraform {
       version = "4.25.0"
     }
   }
-  # backend "azurerm" {
-  #   use_oidc              = true
-  #   resource_group_name  = "sumit"      
-  #   storage_account_name = "sumit1"      
-  #   container_name       = "sumit1"      
-  #   key                  = "dev.tfstate" 
-  # }
+  backend "azurerm" {
+    use_oidc              = true
+    resource_group_name  = "sumit"      
+    storage_account_name = "sumit1"      
+    container_name       = "sumit1"      
+    key                  = "dev.tfstate" 
+  }
   
 }
 
