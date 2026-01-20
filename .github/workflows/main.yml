@@ -30,6 +30,7 @@ jobs:
     
     - name: terraform fmt
       run: terraform fmt
+      working-directory: env/dev
       
     - name: terraforminit
       run: terraform init
@@ -40,7 +41,22 @@ jobs:
       working-directory: env/dev
 
       
+terraform_init_apply:  #job id
+    name: terraform appply plan #job name
+    runs-on: self-hosted #runner and tag dena padta h
+    
+    steps:
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        client-id: 24173b11-ec1b-4072-813a-0aa8e3e81acf
+        tenant-id: 66c291b4-1789-4bcb-9817-6b0339a238bc
+        subscription-id: cef3b1fa-2c9d-4212-843c-0107fc35ca77
+    
+    - name: terraform init
+      run: terraform init
+      working-directory: env/dev
       
-    
-    
-        
+    - name: terraform apply
+      run: terraform apply
+      working-directory: env/dev
