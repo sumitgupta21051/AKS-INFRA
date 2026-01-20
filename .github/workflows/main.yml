@@ -41,9 +41,11 @@ jobs:
       working-directory: env/dev
 
       
-terraform_init_apply:  #job id
+  terraform_init_apply:  #job id
     name: terraform appply plan #job name
     runs-on: self-hosted #runner and tag dena padta h
+    needs: terraform_init_plan
+    environment: dev
     
     steps:
     - name: Azure Login
