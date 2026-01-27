@@ -56,6 +56,10 @@ aks = {
     dns_prefix          = "exampleaks1"
     node_count          = 2
     vm_size             = "Standard_D2s_v3"
+    acr_name            = "acrrg1"
+    role_definition_name= "AcrPull"
+    skip_service_principal_aad_check = true
+
     tags = {
       environment = "dev"
       owner       = "aks-team"

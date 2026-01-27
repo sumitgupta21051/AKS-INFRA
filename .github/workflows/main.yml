@@ -1,23 +1,32 @@
-name: new code AKS #optional pipeline name
+name: INFRA WORKFLOW AKS #optional pipeline name
 
 on:  #workflow kab chalega
   push:
     branches:
     - main
     - feature/*
-permissions:
+permissions:  #OIDC m permission dena padta h
   id-token: write
   contents: read
   
 jobs:
+  scanning_tool:
+    name: scanning tool
+    runs-on: ubuntu-latest # y github hosted m run hoga
+    steps:
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v6.2.1  
+    - name: Run TFLint
+      run: tflint -f compact --recursive
+     
+  
+    
   terraform_init_plan:  #job id
     name: terraform init plan #job name
     runs-on: self-hosted #runner and tag dena padta h
-    
     steps:
     - name: Checkout
       uses: actions/checkout@v6.0.2
-
 
     - name: Azure Login
       uses: Azure/login@v2.3.0
@@ -44,8 +53,8 @@ jobs:
   terraform_init_apply:  #job id
     name: terraform appply plan #job name
     runs-on: self-hosted #runner and tag dena padta h
-    needs: terraform_init_plan
-    environment: dev
+    needs: terraform_init_plan # y depends_on ki trah h
+    environment: dev # y approval k liye h
     
     steps:
     - name: Azure Login
@@ -60,5 +69,6 @@ jobs:
       working-directory: env/dev
       
     - name: terraform apply
+      if: github.ref == 'refs/heads/main' # sirf main s chlega apply y condition h 
       run: terraform apply
       working-directory: env/dev
