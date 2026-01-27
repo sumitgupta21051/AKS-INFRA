@@ -29,7 +29,7 @@ resource "azurerm_role_assignment" "role" {
   for_each = var.aks
   principal_id                     = azurerm_kubernetes_cluster.aks[each.key].kubelet_identity[0].object_id
   role_definition_name             = each.value.role_definition_name
-  scope                            = azurerm_container_registry.acr[each.key].id
+  scope                            = data.azurerm_container_registry.acr[each.key].id
   skip_service_principal_aad_check = each.value.skip_service_principal_aad_check
 }
 
