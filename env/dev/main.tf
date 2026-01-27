@@ -22,7 +22,7 @@ module "sql_database"{
 }
 
 module "aks" {
-    depends_on = [ module.rg ]
+    depends_on = [ module.rg ,module.acr]
     source = "../../modules/azurerm_kubernetes_cluster"
     aks=var.aks
 }
