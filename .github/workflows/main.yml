@@ -70,5 +70,5 @@ jobs:
       
     - name: terraform apply
       if: github.ref == 'refs/heads/main' # sirf main s chlega apply y condition h 
-      run: terraform apply
+      run: terraform apply --auto-approve
       working-directory: env/dev
