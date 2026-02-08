@@ -21,7 +21,7 @@ acr = {
 
 sqlserver = {
   sqlserver1 = {
-    name                         = "sqlserver-aks"
+    name                         = "sqlserver-aks1"
     resource_group_name          = "aks1"
     location                     = "japaneast"
     version                      = "12.0"
@@ -35,7 +35,7 @@ sqlserver = {
 
 sql_datbase = {
   sql_datbase1 = {
-    server_name         = "sqlserver-aks"
+    server_name         = "sqlserver-aks1"
     resource_group_name = "aks1"
     name                = "databse-sql1"
     collation           = "SQL_Latin1_General_CP1_CI_AS"

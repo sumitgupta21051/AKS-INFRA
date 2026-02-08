@@ -9,6 +9,7 @@ module "acr" {
   acr    = var.acr
 }
 
+
 module "sql_server" {
     depends_on = [ module.rg ]
     source = "../../modules/azurerm_sql_server"
