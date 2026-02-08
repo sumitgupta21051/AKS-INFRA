@@ -9,7 +9,7 @@ rgs = {
 
 acr = {
   acr1 = {
-    name                = "acrrg1"
+    name                = "acrrg2"
     resource_group_name = "aks1"
     location            = "japaneast"
     sku                 = "Premium"
@@ -56,7 +56,7 @@ aks = {
     dns_prefix          = "exampleaks1"
     node_count          = 2
     vm_size             = "Standard_D2s_v3"
-    acr_name            = "acrrg1"
+    acr_name            = "acrrg2"
     role_definition_name= "AcrPull"
     skip_service_principal_aad_check = true
 
