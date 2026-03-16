@@ -9,7 +9,7 @@ rgs = {
 
 acr = {
   acr1 = {
-    name                = "acrrg2"
+    name                = "acrrg3"
     resource_group_name = "aks1"
     location            = "japaneast"
     sku                 = "Premium"
@@ -21,7 +21,7 @@ acr = {
 
 sqlserver = {
   sqlserver1 = {
-    name                         = "sqlserver-aks1"
+    name                         = "sqlserver-aks2"
     resource_group_name          = "aks1"
     location                     = "japaneast"
     version                      = "12.0"
@@ -35,7 +35,7 @@ sqlserver = {
 
 sql_datbase = {
   sql_datbase1 = {
-    server_name         = "sqlserver-aks1"
+    server_name         = "sqlserver-aks2"
     resource_group_name = "aks1"
     name                = "databse-sql1"
     collation           = "SQL_Latin1_General_CP1_CI_AS"
@@ -56,7 +56,7 @@ aks = {
     dns_prefix          = "exampleaks1"
     node_count          = 2
     vm_size             = "Standard_D2s_v3"
-    acr_name            = "acrrg2"
+    acr_name            = "acrrg3"
     role_definition_name= "AcrPull"
     skip_service_principal_aad_check = true
 
