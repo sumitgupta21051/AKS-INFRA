@@ -8,11 +8,11 @@ terraform {
   backend "azurerm" {
     use_oidc             = true
     use_azuread_auth     = true
-    tenant_id            = "d1eccdf5-b342-4b78-ab32-7f11700de7e4"
-    client_id            = "4b3d71c1-b88b-425b-b0ee-1870ba610fe2"
+    tenant_id            = "46a7ebd6-3fb7-4fd3-9f4a-6d22dcc2eb40"
+    client_id            = "cc52235b-f822-45d4-ae19-f3be8798ff6b"
     resource_group_name  = "sumit"
-    storage_account_name = "sumitbackend1"
-    container_name       = "sumitbackend1"
+    storage_account_name = "sumitback"
+    container_name       = "sumitback"
     key                  = "dev.tfstate"
   }
 
@@ -20,5 +20,5 @@ terraform {
 
 provider "azurerm" {
   features {}
-  subscription_id = "09250277-3461-4a76-b62f-8499b8d4c172"
+  subscription_id = "00442ed7-647a-4a64-8dae-fb9af5a63eff"
 }
