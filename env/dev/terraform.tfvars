@@ -9,7 +9,7 @@ rgs = {
 
 acr = {
   acr1 = {
-    name                = "acrrg3"
+    name                = "acrsumit"
     resource_group_name = "aks1"
     location            = "japaneast"
     sku                 = "Premium"
@@ -21,7 +21,7 @@ acr = {
 
 sqlserver = {
   sqlserver1 = {
-    name                         = "sqlserver-aks2"
+    name                         = "sumitsql"
     resource_group_name          = "aks1"
     location                     = "japaneast"
     version                      = "12.0"
@@ -35,9 +35,9 @@ sqlserver = {
 
 sql_datbase = {
   sql_datbase1 = {
-    server_name         = "sqlserver-aks2"
+    server_name         = "sumitsql"
     resource_group_name = "aks1"
-    name                = "databse-sql1"
+    name                = "sumitdata"
     collation           = "SQL_Latin1_General_CP1_CI_AS"
     license_type        = "LicenseIncluded"
     max_size_gb         = 2
@@ -56,7 +56,7 @@ aks = {
     dns_prefix          = "exampleaks1"
     node_count          = 2
     vm_size             = "Standard_D2s_v3"
-    acr_name            = "acrrg3"
+    acr_name            = "acrsumit"
     role_definition_name= "AcrPull"
     skip_service_principal_aad_check = true
 
