@@ -1,32 +1,41 @@
-name: new code AKS #optional pipeline name
+name: INFRA WORKFLOW AKS #optional pipeline name
 
 on:  #workflow kab chalega
   push:
     branches:
     - main
     - feature/*
-permissions:
+permissions:  #OIDC m permission dena padta h
   id-token: write
   contents: read
   
 jobs:
+  scanning_tool:
+    name: scanning tool
+    runs-on: ubuntu-latest # y github hosted m run hoga
+    steps:
+    - name: Setup TFLint
+      uses: terraform-linters/setup-tflint@v6.2.1  
+    - name: Run TFLint
+      run: tflint -f compact --recursive
+     
+  
+    
   terraform_init_plan:  #job id
     name: terraform init plan #job name
     runs-on: self-hosted #runner and tag dena padta h
-    
     steps:
     - name: Checkout
       uses: actions/checkout@v6.0.2
-
 
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
         # ClientId of the Azure Service principal created.
-        client-id: 24173b11-ec1b-4072-813a-0aa8e3e81acf
+        client-id: cc52235b-f822-45d4-ae19-f3be8798ff6b
         # TenantId of the Azure Service principal created.
-        tenant-id: 66c291b4-1789-4bcb-9817-6b0339a238bc
-        subscription-id: cef3b1fa-2c9d-4212-843c-0107fc35ca77
+        tenant-id: 46a7ebd6-3fb7-4fd3-9f4a-6d22dcc2eb40
+        subscription-id: 00442ed7-647a-4a64-8dae-fb9af5a63eff
     
     - name: terraform fmt
       run: terraform fmt
@@ -44,21 +53,25 @@ jobs:
   terraform_init_apply:  #job id
     name: terraform appply plan #job name
     runs-on: self-hosted #runner and tag dena padta h
-    needs: terraform_init_plan
-    environment: dev
+    needs: terraform_init_plan # y depends_on ki trah h
+    environment: dev # y approval k liye h
     
     steps:
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
-        client-id: 24173b11-ec1b-4072-813a-0aa8e3e81acf
-        tenant-id: 66c291b4-1789-4bcb-9817-6b0339a238bc
-        subscription-id: cef3b1fa-2c9d-4212-843c-0107fc35ca77
+        # ClientId of the Azure Service principal created.
+        client-id: cc52235b-f822-45d4-ae19-f3be8798ff6b
+        # TenantId of the Azure Service principal created.
+        tenant-id: 46a7ebd6-3fb7-4fd3-9f4a-6d22dcc2eb40
+        subscription-id: 00442ed7-647a-4a64-8dae-fb9af5a63eff
     
     - name: terraform init
       run: terraform init
       working-directory: env/dev
       
     - name: terraform apply
-      run: terraform apply
+      if: github.ref == 'refs/heads/main' # sirf main s chlega apply y condition h 
+      run: terraform apply --auto-approve
       working-directory: env/dev
+
