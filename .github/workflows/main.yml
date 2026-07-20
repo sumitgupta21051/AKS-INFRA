@@ -31,11 +31,7 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
-        # ClientId of the Azure Service principal created.
-        client-id: cc52235b-f822-45d4-ae19-f3be8798ff6b
-        # TenantId of the Azure Service principal created.
-        tenant-id: 46a7ebd6-3fb7-4fd3-9f4a-6d22dcc2eb40
-        subscription-id: 00442ed7-647a-4a64-8dae-fb9af5a63eff
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     
     - name: terraform fmt
       run: terraform fmt
@@ -60,11 +56,7 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
-        # ClientId of the Azure Service principal created.
-        client-id: cc52235b-f822-45d4-ae19-f3be8798ff6b
-        # TenantId of the Azure Service principal created.
-        tenant-id: 46a7ebd6-3fb7-4fd3-9f4a-6d22dcc2eb40
-        subscription-id: 00442ed7-647a-4a64-8dae-fb9af5a63eff
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     
     - name: terraform init
       run: terraform init
