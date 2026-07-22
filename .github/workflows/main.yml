@@ -5,9 +5,9 @@ on:  #workflow kab chalega
     branches:
     - main
     - feature/*
-permissions:  #OIDC m permission dena padta h
-  id-token: write
-  contents: read
+# permissions:  #OIDC m permission dena padta h
+#   id-token: write
+#   contents: read
   
 jobs:
   scanning_tool:
