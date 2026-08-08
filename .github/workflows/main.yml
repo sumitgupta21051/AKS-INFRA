@@ -23,7 +23,7 @@ jobs:
     
   terraform_init_plan:  #job id
     name: terraform init plan #job name
-    runs-on: ubuntu-latest #runner and tag dena padta h
+    runs-on: self-hosted #runner and tag dena padta h
     steps:
     - name: Checkout
       uses: actions/checkout@v6.0.2
@@ -48,7 +48,7 @@ jobs:
       
   terraform_init_apply:  #job id
     name: terraform appply plan #job name
-    runs-on: ubuntu-latest #runner and tag dena padta h
+    runs-on: self-hosted #runner and tag dena padta h
     needs: terraform_init_plan # y depends_on ki trah h
     environment: dev # y approval k liye h
     
