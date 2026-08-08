@@ -15,6 +15,13 @@ resource "azurerm_kubernetes_cluster" "aks" {
   identity {
     type = "SystemAssigned"
   }
+  
+    network_profile {
+  network_plugin      = "azure"
+  network_plugin_mode = "overlay"
+  network_policy      = "calico"
+}
+  
 
   tags = each.value.tags
 }
