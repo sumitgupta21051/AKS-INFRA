@@ -7,6 +7,7 @@ rgs = {
       owner       = "aks-team"
 } } }
 
+
 acr = {
   acr1 = {
     name                = "acrsumit22"
