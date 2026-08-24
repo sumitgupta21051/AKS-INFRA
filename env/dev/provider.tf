@@ -7,8 +7,8 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "sumit"
-    storage_account_name = "sumitback1"
-    container_name       = "sumitback1"
+    storage_account_name = "sumitback2"
+    container_name       = "sumitback2"
     key                  = "dev.tfstate"
   }
 
