@@ -5,6 +5,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
   dns_prefix          = each.value.dns_prefix #"exampleaks1"
+   oidc_issuer_enabled = true
 
   default_node_pool {
     name       = "default"
